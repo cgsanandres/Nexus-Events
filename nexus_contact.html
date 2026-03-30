@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Events - Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Base Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(90deg, #ffd6e0, #cbf3f0);
+            background-blend-mode: overlay;
+            padding: 0 2rem;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background: #2d2d2d;
+            color: #fff;
+            padding: 0.7rem 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 1rem 0;
+            border: 2px solid #ff7f50;
+            border-left-width: 8px;
+            text-align: right;
+        }
+
+        /* Header */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .logo {
+            background: #008080;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            font-family: 'Bangers', cursive;
+            font-size: 2.2rem;
+            letter-spacing: 1.5px;
+            border: 4px solid #2d2d2d;
+            position: relative;
+        }
+
+        .logo::before {
+            content: "EST. 2024";
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            background: #ff7f50;
+            color: #2d2d2d;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border: 2px solid #2d2d2d;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            background: #fff;
+            color: #2d2d2d;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            border: 3px solid #2d2d2d;
+            border-right-width: 6px;
+            border-bottom-width: 6px;
+            border-radius: 2px;
+            font-weight: 900;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn.active {
+            background: #9370db;
+            color: #fff;
+        }
+
+        .nav-btn:hover {
+            background: #ff7f50;
+            color: #fff;
+            transform: translate(-1px, -1px);
+        }
+
+        /* Party Mode Toggle */
+        .party-toggle {
+            background: #fff;
+            padding: 0.6rem 1rem;
+            border: 3px solid #2d2d2d;
+            border-radius: 20px;
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .toggle-switch {
+            background: #2d2d2d;
+            width: 30px;
+            height: 18px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .toggle-dot {
+            background: #ff7f50;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        .party-toggle.on .toggle-dot {
+            transform: translateX(12px);
+            background: #008080;
+        }
+
+        /* Main Content */
+        main {
+            margin-bottom: 5rem;
+        }
+
+        .section-heading {
+            font-family: 'Bangers', cursive;
+            font-size: 3rem;
+            color: #2d2d2d;
+            text-shadow: 2px 2px 0 #ff7f50;
+            margin-bottom: 1rem;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        /* Contact Form Card */
+        .form-card {
+            background: #fff;
+            border: 5px solid #2d2d2d;
+            padding: 2rem;
+            box-shadow: 0 0 0 4px #e6e6fa, 8px 8px 0 #2d2d2d;
+        }
+
+        .form-card h2 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .form-card p {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: #2d2d2d;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 3px solid #2d2d2d;
+            border-right-width: 6px;
+            border-bottom-width: 6px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Info Card */
+        .info-card {
+            background: #fff;
+            border: 5px solid #2d2d2d;
+            padding: 2rem;
+            box-shadow: 0 0 0 4px #e6e6fa, 8px 8px 0 #2d2d2d;
+            position: relative;
+        }
+
+        .info-card h2 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .hours-list {
+            list-style-type: none;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+
+        .hours-list li span {
+            font-weight: 900;
+            color: #2d2d2d;
+            display: inline-block;
+            width: 120px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-link {
+            background: #008080;
+            color: #fff;
+            padding: 0.7rem 1rem;
+            text-decoration: none;
+            border: 3px solid #2d2d2d;
+            border-right-width: 6px;
+            border-bottom-width: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 900;
+            transition: all 0.2s ease;
+        }
+
+        .contact-link.email {
+            background: #00a2ed;
+        }
+
+        .contact-link.phone {
+            background: #ff7f50;
+        }
+
+        .contact-link:hover {
+            transform: translate(-1px, -1px);
+            background: #9370db;
+        }
+
+        /* Action Button */
+        .btn {
+            background: #ffd700;
+            color: #2d2d2d;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border: 3px solid #2d2d2d;
+            border-right-width: 6px;
+            border-bottom-width: 6px;
+            display: inline-block;
+            text-align: center;
+            font-weight: 900;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #ff7f50;
+            color: #fff;
+            transform: translate(-1px, -1px);
+        }
+
+        /* Social Links Bar */
+        .social-bar {
+            background: #2d2d2d;
+            color: #fff;
+            padding: 1.5rem;
+            border: 4px solid #ff7f50;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .social-bar h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            background: #fff;
+            color: #2d2d2d;
+            width: 50px;
+            height: 50px;
+            border: 3px solid #ff7f50;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            background: #9370db;
+            color: #fff;
+            border-color: #fff;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        .footer-teaser {
+            background: #2d2d2d;
+            color: #fff;
+            padding: 1rem;
+            border-top: 4px solid #ff7f50;
+            border-bottom: 4px solid #008080;
+            text-align: center;
+            font-family: 'Bangers', cursive;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">Got Questions? We Reply Within 24 Hours On All Inquiries!</div>
+
+    <!-- Header -->
+    <header class="header-container">
+        <div class="logo">Nexus Events</div>
+        
+        <nav class="nav-links">
+            <a href="nexus_home.html" class="nav-btn">Home</a>
+            <a href="nexus_events.html" class="nav-btn">Events</a>
+            <a href="nexus_tickets.html" class="nav-btn">Tickets</a>
+            <a href="nexus_venue.html" class="nav-btn">Venue</a>
+            <a href="nexus_contact.html" class="nav-btn active">Contact</a>
+            <a href="nexus_admin.html" class="nav-btn">Admin</a>
+        </nav>
+        
+        <div class="party-toggle" id="partyToggle">
+            <span>Party Mode</span>
+            <div class="toggle-switch">
+                <div class="toggle-dot"></div>
+            </div>
+            <span>OFF</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1 class="section-heading">Let's Talk!</h1>
+
+        <div class="contact-wrapper">
+            <!-- Contact Form Card -->
+            <div class="form-card">
+                <h2>Contact the Crew</h2>
+                <p>Need group rates, sponsorship info, venue bookings, or help with tickets? Drop us a note and our team will get back to you within 24 business hours!</p>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" placeholder="Juan Dela Cruz" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topic">Inquiry Topic</label>
+                        <select id="topic" required>
+                            <option value="">-- Select a Topic --</option>
+                            <option value="tickets">Tickets & Orders</option>
+                            <option value="venue">Venue Rentals</option>
+                            <option value="sponsorship">Sponsorships</option>
+                            <option value="groups">Group Rates</option>
+                            <option value="feedback">Feedback & Suggestions</option>
+                            <option value="other">Other Inquiries</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="Tell us what you need help with..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Info Card -->
+            <div class="info-card">
+                <h2>Studio Hours</h2>
+                <ul class="hours-list">
+                    <li><span>Monday - Friday:</span> 10:00 AM – 7:00 PM</li>
+                    <li><span>Saturday:</span> 12:00 PM – 9:00 PM</li>
+                    <li><span>Sunday:</span> By Appointment Only</li>
+                    <li><span>Holidays:</span> Closed (Except Event Days)</li>
+                </ul>
+
+                <h2>Get In Touch</h2>
+                <div class="contact-links">
+                    <a href="mailto:hello@nexusevents.ph" class="contact-link email">
+                        <span>✉️</span> hello@nexusevents.ph
+                    </a>
+                    <a href="tel:+639185552028" class="contact-link phone">
+                        <span>📞</span> +63 918 555 2028
+                    </a>
+                </div>
+
+                <a href="nexus_venue.html" class="btn">See The Venue</a>
+            </div>
+        </div>
+
+        <!-- Social Links Bar -->
+        <div class="social-bar">
+            <h3>Follow Us For Sneak Peeks & Updates!</h3>
+            <div class="social-links">
+                <a href="#" class="social-link">📱</a>
+                <a href="#" class="social-link">📸</a>
+                <a href="#" class="social-link">🎥</a>
+                <a href="#" class="social-link">🐦</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Teaser -->
+    <div class="footer-teaser">
+        Visit Us At Nexus Hall, Cubao Quezon City · MRT Cubao Station Just 1.2 KM Away!
+    </div>
+
+    <!-- JavaScript for Functionality -->
+    <script>
+        // Party Mode Toggle
+        const partyToggle = document.getElementById('partyToggle');
+        const body = document.body;
+
+        partyToggle.addEventListener('click', () => {
+            partyToggle.classList.toggle('on');
+            const modeText = partyToggle.querySelector('span:last-child');
+            
+            if (partyToggle.classList.contains('on')) {
+                modeText.textContent = 'ON';
+                body.style.background = 'url("https://images.unsplash.com/photo-1518655048521-f130df041f66?q=80&w=1000&auto=format&fit=crop") repeat';
+                body.style.backgroundBlendMode = 'screen';
+            } else {
+                modeText.textContent = 'OFF';
+                body.style.background = 'linear-gradient(90deg, #ffd6e0, #cbf3f0)';
+                                body.style.backgroundBlendMode = 'overlay';
+            }
+        });
+
+        // Contact Form Submission Handling
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('fullName').value;
+            const topic = document.getElementById('topic').options[document.getElementById('topic').selectedIndex].text;
+            
+            alert(`Thanks for reaching out, ${name}! We've received your inquiry about ${topic} and will respond within 24 hours.`);
+            this.reset();
+        });
+
+        // Social Link Hover Effects
+        const socialLinks = document.querySelectorAll('.social-link');
+        const socialIcons = ['📱', '📸', '🎥', '🐦'];
+        const hoverIcons = ['💬', '✨', '🎬', '💭'];
+
+        socialLinks.forEach((link, index) => {
+            link.addEventListener('mouseenter', () => {
+                link.textContent = hoverIcons[index];
+            });
+            link.addEventListener('mouseleave', () => {
+                link.textContent = socialIcons[index];
+            });
+        });
+
+        // Contact Link Actions
+        const emailLink = document.querySelector('.contact-link.email');
+        const phoneLink = document.querySelector('.contact-link.phone');
+
+        emailLink.addEventListener('click', (e) => {
+            alert('Opening your default email app to send a message to hello@nexusevents.ph!');
+        });
+
+        phoneLink.addEventListener('click', (e) => {
+            alert('Dialing +63 918 555 2028 – we’re ready to help!');
+        });
+    </script>
+</body>
+</html>
