@@ -255,6 +255,58 @@
             transform: translate(-1px, -1px);
         }
 
+        /* Dashboard Styles */
+        .dashboard-card {
+            background: #fff;
+            border: 5px solid #2d2d2d;
+            padding: 2rem;
+            box-shadow: 0 0 0 4px #e6e6fa, 8px 8px 0 #2d2d2d;
+            display: none; /* Hidden by default */
+        }
+
+        .dashboard-card h2 {
+            font-family: 'Bangers', cursive;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-box {
+            background: #f0f0f0;
+            padding: 1rem;
+            border: 3px solid #2d2d2d;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #008080;
+        }
+
+        .list-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .list-section h3 {
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .list-item {
+            background: #f9f9f9;
+            padding: 0.5rem;
+            border: 2px solid #ddd;
+            margin-bottom: 0.3rem;
+        }
+
         /* Footer Bar */
         .admin-footer {
             display: flex;
@@ -324,7 +376,7 @@
         </div>
 
         <!-- Login Card -->
-        <div class="login-card">
+        <div class="login-card" id="loginCard">
             <h2>Admin Login</h2>
             <div class="demo-note">Team Login: admin / nexus2026</div>
             
@@ -341,6 +393,35 @@
 
                 <button type="submit" class="login-btn">Enter Dashboard</button>
             </form>
+        </div>
+
+        <!-- Dashboard Card -->
+        <div class="dashboard-card" id="dashboardCard">
+            <h2>Dashboard Overview</h2>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">12</div>
+                    <div>Upcoming Events</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1,245</div>
+                    <div>Tickets Sold</div>
+                </div>
+            </div>
+
+            <div class="list-section">
+                <h3>Recent Orders</h3>
+                <div class="list-item">Order #1023 - VIP Pass - 2 pax</div>
+                <div class="list-item">Order #1022 - Regular Entry - 5 pax</div>
+                <div class="list-item">Order #1021 - VIP Pass - 1 pax</div>
+            </div>
+
+            <div class="list-section">
+                <h3>Inquiries</h3>
+                <div class="list-item">John Doe - Question about event schedule</div>
+                <div class="list-item">Jane Smith - Request for group discount</div>
+            </div>
         </div>
     </main>
 
@@ -374,23 +455,25 @@
         // Admin Login Validation
         const loginForm = document.getElementById('adminLoginForm');
         const quickActions = document.getElementById('quickActions').querySelectorAll('.action-btn');
+        const loginCard = document.getElementById('loginCard');
+        const dashboardCard = document.getElementById('dashboardCard');
 
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const adminId = document.getElementById('adminId').value;
-            const adminPass = document.getElementById('adminPass').value;
+                      const adminPass = document.getElementById('adminPass').value;
 
             // Demo credentials check
             if (adminId === 'admin' && adminPass === 'nexus2026') {
                 alert('Login successful! Redirecting to Dashboard...');
                 
+                // Hide Login Card & Show Dashboard Card
+                loginCard.style.display = 'none';
+                dashboardCard.style.display = 'block';
+                
                 // Activate quick action buttons
                 quickActions.forEach(btn => btn.classList.add('active'));
                 
-                // Mock redirect (replace with actual dashboard link later)
-                setTimeout(() => {
-                    alert('Dashboard loaded – manage events, tickets, and more here!');
-                }, 1000);
             } else {
                 alert('Invalid credentials! Use demo access: admin / nexus2026');
             }
@@ -408,4 +491,3 @@
     </script>
 </body>
 </html>
-
